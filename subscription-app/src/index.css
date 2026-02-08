@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        background-color: #FFFFFF;
+        color: #1F2937;
+        transition: color 200ms, background-color 200ms;
+    }
+}
+
+@media print {
+
+    /* Hide Sidebar, Header, Buttons */
+    .no-print,
+    nav,
+    header,
+    button,
+    .print\:hidden {
+        display: none !important;
+    }
+
+    /* Ensure Invoice Content is visible and full width */
+    body,
+    #root,
+    .max-w-4xl {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .bg-white {
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
