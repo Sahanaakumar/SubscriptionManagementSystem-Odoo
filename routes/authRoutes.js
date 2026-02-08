@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const { registerUser, loginUser, getUserProfile, forgotPassword, resetPassword } = require('../controllers/authController');
+const { protect } = require('../middleware/authMiddleware');
+
+router.post('/signup', registerUser);
+router.post('/login', loginUser);
+router.post('/forgot-password', forgotPassword);
+router.post('/reset-password', resetPassword);
+// router.post('/login', loginUser); // Removed duplicate
+router.get('/profile', protect, getUserProfile);
+
+module.exports = router;
